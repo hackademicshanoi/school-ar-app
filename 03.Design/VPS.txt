@@ -1,0 +1,8 @@
+DOMAIN : vps1.hackademicshanoi.vn
+CentOS 6.8, PHP 5.3.3, Mysql 5.1.73
+SSH HOST : vps1.hackademicshanoi.vn
+SSH PORT : 6656
+SSH USER : admin
+SSH PASS : %pGD2ML6yBG&
+MYSQL USER : root
+MYSQL PASS : %7mf%M%UyIqh
