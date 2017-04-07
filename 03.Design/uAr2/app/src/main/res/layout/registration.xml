@@ -41,7 +41,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/txtFirstNameRegis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -51,7 +51,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/txtLastNameRegis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -87,7 +87,7 @@
                 android:weightSum="12">
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/spYearRegis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -102,7 +102,7 @@
                     android:text="NG" />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spMonthRegis"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
                     android:text="T" />
 
                 <Spinner
-                    android:id="@+id/spinner3"
+                    android:id="@+id/spDateRegis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -152,7 +152,7 @@
                 app:srcCompat="@mipmap/school_re" />
 
             <Spinner
-                android:id="@+id/spinner4"
+                android:id="@+id/spSchoolRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -175,7 +175,7 @@
                 app:srcCompat="@mipmap/address_re" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/txtEmailRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -200,7 +200,7 @@
                 app:srcCompat="@mipmap/pass_re" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/txtPasswordRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -229,7 +229,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/chkAgreeRegis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="" />
@@ -247,7 +247,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView23"
+            android:id="@+id/imgRegis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
