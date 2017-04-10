@@ -146,7 +146,17 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     else {
                         Snackbar snackbar = Snackbar
-                                .make(constraintLayout, response.body().getMessage(), Snackbar.LENGTH_LONG);
+                                .make(constraintLayout, response.body().getMessage(), Snackbar.LENGTH_LONG)
+                                .setAction("SIGNUP", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                                        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                                    }
+                                });
+
+                        // Changing message text color
+                        snackbar.setActionTextColor(Color.RED);
 
                         // Changing action button text color
                         View sbView = snackbar.getView();
@@ -206,7 +216,7 @@ public class LoginActivity extends AppCompatActivity {
         String password = txtPasswordLogin.getText().toString();
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            txtEmailLogin.setError("enter a valid email address");
+            txtEmailLogin.setError("Enter a valid email address");
             requestFocus(txtEmailLogin);
             valid = false;
         } else {
