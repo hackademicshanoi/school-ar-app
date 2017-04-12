@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Shaon
- * Date: 2/2/2017
- * Time: 1:25 AM
- */
  
 include_once('../user/Authentication.php');
 use user\Authentication;

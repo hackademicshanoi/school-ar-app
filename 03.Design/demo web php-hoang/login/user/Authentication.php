@@ -11,6 +11,7 @@ namespace user;
  
 class Authentication
 {
+	private $TOKEN = "";
     private $EMAIL = "";
     private $PASSWORD = "";
  
@@ -25,6 +26,12 @@ class Authentication
         $this->DB_CONNECTION = mysqli_connect($this->servername, $this->username,
             $this->password, $this->dbname);
     }
+	
+	public function prepareEmail($dataEmail)
+	{
+		if (array_key_exists('email', $dataEmail))
+            $this->EMAIL = $dataEmail['email'];
+	}
  
     public function prepare($data)
     {
@@ -35,6 +42,37 @@ class Authentication
             $this->PASSWORD = $data['password'];
  
     }
+	
+	public function prepareToken ($dataToken)
+	{
+		if (array_key_exists('token',$dataToken))
+			$this->TOKEN = $dataToken['token'];
+	}
+	
+	function isTokenNotExisted() {
+        $sql = "SELECT `token` FROM `users` WHERE token = '". $this->TOKEN."' ";
+ 
+        $result = mysqli_query($this->DB_CONNECTION, $sql);
+ 
+        if(mysqli_num_rows($result) == 0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+ 
+    function isTokenExisted() {
+        $sql = "SELECT `token` FROM `users` WHERE token = '". $this->TOKEN."' ";
+ 
+        $result = mysqli_query($this->DB_CONNECTION, $sql);
+ 
+        if(mysqli_num_rows($result) > 0) {
+            return true;
+        }else {
+            return false;
+        }
+    }	
+	
  
 	function isUserNotExisted() {
         $sql = "SELECT `email` FROM `users` WHERE email = '". $this->EMAIL."' ";
