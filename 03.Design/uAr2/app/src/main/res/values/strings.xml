@@ -1,7 +1,27 @@
 <resources>
     <string name="app_name">uArLayout</string>
-    <string name="password">Password</string>
-    <string name="email">Email</string>
+    <string name="password">パスワード</string>
+    <string name="email">メールアドレス</string>
+    <string name="splash_screen_description">UAR Splash</string>
+    <string name="your_name">お名前</string>
+    <string name="date_of_birth">生年月日</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="school_name">学校名</string>
+    <string name="email_optional">メールアドレス（任意）</string>
+    <string name="password_regis_text">パスワ一ド</string>
+    <string name="password_regis_hint">英数字〇桁以上</string>
+    <string name="i_agree">の同意が必要です。</string>
+    <string name="you_must_agree">本サービスをご利用するには利用規約への同意が必要です。</string>
+    <string name="wrong_email">Wrong email</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="signup_for_wrong_email">SIGNUP</string>
+    <string name="recovery_for_wrong_password">RECOVERY</string>
+    <string name="email_exist">Email exist</string>
+    <string name="select_school_name_spinner">Select an item…</string>
+    <string name="error_spinner_school">School Name is empty</string>
+    <string name="describe_reminder">ログイン情報をお忘れの方は、登録のメールアド レスをご入力ください。アドレス宛にログイン情報 を送付いたします。</string>
 
     <string-array name="item_day">
         <item>1</item>
@@ -37,5 +57,8 @@
         <item>31</item>
 
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

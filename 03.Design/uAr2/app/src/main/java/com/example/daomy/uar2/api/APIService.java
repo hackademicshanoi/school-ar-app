@@ -30,6 +30,14 @@ public interface APIService {
     Call<MSG> userLogIn(@Field("email") String email,
                         @Field("password") String password);
 
+    @FormUrlEncoded
+    @POST("login/views/checktoken.php")
+    Call<MSG> checkToken(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("login/views/reminder.php")
+    Call<MSG> reminder(@Field("email") String email);
+
 
 
 

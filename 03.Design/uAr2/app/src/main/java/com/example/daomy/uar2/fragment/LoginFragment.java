@@ -1,20 +1,23 @@
-package com.example.daomy.uar2.activity;
+package com.example.daomy.uar2.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.daomy.uar2.MainActivity;
 import com.example.daomy.uar2.R;
 import com.example.daomy.uar2.api.APIClient;
 import com.example.daomy.uar2.api.APIService;
@@ -26,8 +29,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "LoginActivity";
+import static android.app.Activity.RESULT_OK;
+
+public class LoginFragment extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    private OnFragmentInteractionListener mListener;
+
+    private static final String TAG = "LoginFragment";
     private static final int REQUEST_SIGNUP = 0;
     private ProgressDialog pDialog;
     @BindView(R.id.txtEmailLogin)
@@ -39,17 +55,42 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.ConstraintLayout)
     ConstraintLayout constraintLayout;
 
+    public LoginFragment() {
+        // Required empty public constructor
+    }
+
+    // TODO: Rename and change types and number of parameters
+    public static LoginFragment newInstance(String param1, String param2) {
+        LoginFragment fragment = new LoginFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
-        ButterKnife.bind(this);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.login, container, false);
+        ButterKnife.bind(this, v);
         addControls();
         addEvents();
+        return v;
     }
 
     private void addControls() {
-        pDialog = new ProgressDialog(this);
+        pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Logging in...");
         pDialog.setCancelable(false);
     }
@@ -98,20 +139,16 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 if(response.body().getSuccess() == 1) {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
-                    finish();
-                    overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                    getFragmentManager().beginTransaction().replace(R.id.nav_contentframe, new MyPageFragment()).commit();
                 }else {
-//                    Toast.makeText(LoginActivity.this, "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     if (response.body().getMessage().equals("Wrong email")) {
                         Snackbar snackbar = Snackbar
-                                .make(constraintLayout, response.body().getMessage(), Snackbar.LENGTH_LONG)
-                                .setAction("REGISTER", new View.OnClickListener() {
+                                .make(constraintLayout, getResources().getString(R.string.wrong_email), Snackbar.LENGTH_LONG)
+                                .setAction(getResources().getString(R.string.signup_for_wrong_email), new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                                        getFragmentManager().beginTransaction().replace(R.id.nav_contentframe, new RegisterFragment()).commit();
                                     }
                                 });
 
@@ -126,32 +163,11 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     else if (response.body().getMessage().equals("Wrong password")) {
                         Snackbar snackbar = Snackbar
-                                .make(constraintLayout, response.body().getMessage(), Snackbar.LENGTH_LONG)
-                                .setAction("RECOVERY", new View.OnClickListener() {
+                                .make(constraintLayout, getResources().getString(R.string.wrong_password), Snackbar.LENGTH_LONG)
+                                .setAction(getResources().getString(R.string.recovery_for_wrong_password), new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                                    }
-                                });
-
-                        // Changing message text color
-                        snackbar.setActionTextColor(Color.RED);
-
-                        // Changing action button text color
-                        View sbView = snackbar.getView();
-                        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
-                        textView.setTextColor(Color.YELLOW);
-                        snackbar.show();
-                    }
-                    else {
-                        Snackbar snackbar = Snackbar
-                                .make(constraintLayout, response.body().getMessage(), Snackbar.LENGTH_LONG)
-                                .setAction("SIGNUP", new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-                                        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                                        getFragmentManager().beginTransaction().replace(R.id.nav_contentframe, new ReminderFragment()).commit();
                                     }
                                 });
 
@@ -177,13 +193,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_SIGNUP) {
             if (resultCode == RESULT_OK) {
 
                 // TODO: Implement successful signup logic here
                 // By default we just finish the Activity and log them in automatically
-                this.finish();
+//                this.finish();
             }
         }
     }
@@ -192,7 +208,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess() {
         imgLogin.setEnabled(true);
-        finish();
+//        finish();
     }
 
     public void onLoginFailed() {
@@ -236,8 +252,46 @@ public class LoginActivity extends AppCompatActivity {
 
     private void requestFocus(View view) {
         if (view.requestFocus()) {
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
     }
 
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        /*if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }*/
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
+    }
 }

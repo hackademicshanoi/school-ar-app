@@ -12,7 +12,7 @@
         android:weightSum="6">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
+            android:id="@+id/imgProfileMyPage"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_below="@+id/imageView"
@@ -31,18 +31,18 @@
             android:weightSum="2">
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/txtFullNameMyPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="山田花子 " />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/txtDateOfBirthMyPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="2008年12月31日生まれ " />
         </LinearLayout>
 
         <LinearLayout
@@ -55,18 +55,18 @@
             android:weightSum="2">
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/txtFirstSchoolMyPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="私立〇x〇x小学校 " />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/txtSecondSchoolMyPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="私立〇x〇x中学校 " />
         </LinearLayout>
 
         <LinearLayout
@@ -79,14 +79,14 @@
             android:weightSum="2">
 
             <ImageView
-                android:id="@+id/imageView24"
+                android:id="@+id/imgCameraMyPage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@mipmap/camera_mp" />
 
             <ImageView
-                android:id="@+id/imageView25"
+                android:id="@+id/imgEditMyPage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

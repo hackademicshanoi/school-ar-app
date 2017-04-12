@@ -30,11 +30,12 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/name_re" />
+                android:paddingLeft="5dp"
+                android:text="@string/your_name" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,12 +78,13 @@
             android:orientation="vertical"
             android:weightSum="3">
 
-            <ImageView
-                android:id="@+id/imageView17"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/birthday_re" />
+                android:paddingLeft="5dp"
+                android:text="@string/date_of_birth" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -105,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="NG" />
+                    android:text="@string/year" />
 
                 <Spinner
                     android:id="@+id/spMonthRegis"
@@ -122,7 +124,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="T" />
+                    android:text="@string/month" />
 
                 <Spinner
                     android:id="@+id/spDayRegis"
@@ -137,7 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="N" />
+                    android:text="@string/day" />
             </LinearLayout>
 
         </LinearLayout>
@@ -150,17 +152,20 @@
             android:orientation="vertical"
             android:weightSum="3">
 
-            <ImageView
-                android:id="@+id/imageView18"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/school_re" />
+                android:paddingLeft="5dp"
+                android:text="@string/school_name" />
 
             <Spinner
                 android:id="@+id/spSchoolRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="2"
                 android:background="@mipmap/box_full" />
         </LinearLayout>
@@ -173,17 +178,20 @@
             android:orientation="vertical"
             android:weightSum="3">
 
-            <ImageView
-                android:id="@+id/imageView19"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/address_re" />
+                android:paddingLeft="5dp"
+                android:text="@string/email_optional" />
 
             <EditText
                 android:id="@+id/txtEmailRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="2"
                 android:background="@mipmap/box_full"
                 android:ems="10"
@@ -200,20 +208,24 @@
             android:orientation="vertical"
             android:weightSum="3">
 
-            <ImageView
-                android:id="@+id/imageView20"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/pass_re" />
+                android:paddingLeft="5dp"
+                android:text="@string/password_regis_text" />
 
             <EditText
                 android:id="@+id/txtPasswordRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="2"
                 android:background="@mipmap/box_full"
                 android:ems="10"
+                android:hint="@string/password_regis_hint"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />
@@ -226,11 +238,13 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView21"
+            <TextView
+                android:id="@+id/textView23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/notice_re" />
+                android:paddingLeft="5dp"
+                android:text="@string/you_must_agree"
+                android:textSize="13sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -244,12 +258,12 @@
                     android:layout_height="wrap_content"
                     android:text="" />
 
-                <ImageView
-                    android:id="@+id/imageView22"
+                <TextView
+                    android:id="@+id/textView25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:srcCompat="@mipmap/agreement_re" />
+                    android:text="@string/i_agree" />
 
 
             </LinearLayout>

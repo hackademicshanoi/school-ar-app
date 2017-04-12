@@ -1,6 +1,7 @@
 package com.example.daomy.uar2.adapter;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,6 +35,9 @@ public class SpinnerSchoolAdapter extends ArrayAdapter<School> {
 
         School school=objects.get(position);
         txtSpSchool.setText(school.getSchool_name());
+        if (position ==0){
+            txtSpSchool.setTextColor(Color.GRAY);
+        }
         return row;
     }
 
@@ -46,6 +50,23 @@ public class SpinnerSchoolAdapter extends ArrayAdapter<School> {
 
         School school=objects.get(position);
         txtSpSchool.setText(school.getSchool_name());
+        if (position ==0){
+            txtSpSchool.setTextColor(Color.GRAY);
+        }
         return row;
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        if (position==0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void setError(View v, CharSequence s) {
+        TextView name = (TextView) v.findViewById(R.id.txtSpSchool);
+        name.setError(s);
     }
 }
