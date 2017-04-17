@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/editLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@mipmap/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:weightSum="7">
 
         <ImageView
@@ -18,7 +20,7 @@
             android:layout_gravity="center"
             android:layout_margin="15dp"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/title_er" />
+            app:srcCompat="@mipmap/logo2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,11 +30,11 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/name_re" />
+                android:text="@string/your_name" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,24 +43,28 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/txtFirstNameEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="@mipmap/box_full"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/txtLastNameEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="@mipmap/box_full"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -68,15 +74,13 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:weightSum="3">
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView17"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@mipmap/birthday_re" />
+                android:text="@string/date_of_birth" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,7 +91,7 @@
                 android:weightSum="12">
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/spYearEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -99,10 +103,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="NG" />
+                    android:text="@string/year" />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spMonthEdit"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,10 +120,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="T" />
+                    android:text="@string/month" />
 
                 <Spinner
-                    android:id="@+id/spinner3"
+                    android:id="@+id/spDayEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -131,11 +135,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="N" />
+                    android:text="@string/day" />
             </LinearLayout>
 
         </LinearLayout>
-
 
 
         <LinearLayout
@@ -143,66 +146,99 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:weightSum="3">
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@mipmap/pass_re" />
 
-            <EditText
-                android:id="@+id/editText5"
+            <TextView
+                android:id="@+id/textView28"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/school_name" />
+
+            <Spinner
+                android:id="@+id/spSchoolEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="2"
-                android:background="@mipmap/box_full"
-                android:ems="10"
-                android:inputType="textPassword" />
+                android:background="@mipmap/box_full" />
+
+            <Spinner
+                android:id="@+id/spSchool2Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@mipmap/box_full" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/password_now" />
+
+            <EditText
+                android:id="@+id/txtPasswordNowEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@mipmap/box_full"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
 
-            <ImageView
-                android:id="@+id/imageView26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/school_re" />
-
-            <EditText
-                android:id="@+id/editText8"
-                android:layout_margin="5dp"
+            <TextView
+                android:id="@+id/textView30"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:background="@mipmap/box_full"
-                android:text="" />
+                android:text="@string/password_new" />
 
             <EditText
-                android:id="@+id/editText9"
-                android:layout_margin="5dp"
+                android:id="@+id/txtPasswordNewEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2"
                 android:background="@mipmap/box_full"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="" />
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <EditText
+                android:id="@+id/txtPasswordNew2Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@mipmap/box_full"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
 
         </LinearLayout>
 
         <ImageView
 
-            android:id="@+id/imageView23"
+            android:id="@+id/imgEditInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

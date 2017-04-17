@@ -1,7 +1,6 @@
 package com.example.daomy.uar2.activity;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.example.daomy.uar2.R;
+import com.example.daomy.uar2.fragment.MyPageFragment;
 import com.example.daomy.uar2.fragment.TopFragment;
 
 import butterknife.BindView;
@@ -23,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout mDrawerLayout;
     @BindView(R.id.nav_contentframe)
     FrameLayout mContentFrame;
-    private boolean mUserLearnedDrawer;
+
     private boolean mFromSavedInstanceState;
     private int mCurrentSelectedPosition;
     private static final String PREFERENCES_FILE = "mymaterialapp_settings";
     private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +40,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mUserLearnedDrawer = Boolean.valueOf(readSharedSetting(this, PREF_USER_LEARNED_DRAWER, "false"));
-
         if (savedInstanceState != null) {
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
             mFromSavedInstanceState = true;
         }
 
-
-        startFragment(new TopFragment());
-
-
+        Intent intent = getIntent();
+        int kqTraVe = intent.getIntExtra("success",0);
+        if(kqTraVe==0){
+            startFragment(new TopFragment());
+        } else {
+            startFragment(new MyPageFragment());
+        }
     }
-
 
     public void startFragment(Fragment fragment) {
         String backStateName = fragment.getClass().getName();
@@ -67,17 +68,5 @@ public class MainActivity extends AppCompatActivity {
             //ft.addToBackStack(backStateName);
             ft.commit();
         }
-    }
-
-    public static String readSharedSetting(Context ctx, String settingName, String defaultValue) {
-        SharedPreferences sharedPref = ctx.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
-        return sharedPref.getString(settingName, defaultValue);
-    }
-
-    public static void saveSharedSetting(Context ctx, String settingName, String settingValue) {
-        SharedPreferences sharedPref = ctx.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(settingName, settingValue);
-        editor.apply();
     }
 }

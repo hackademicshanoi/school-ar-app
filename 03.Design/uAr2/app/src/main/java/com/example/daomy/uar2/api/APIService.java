@@ -21,9 +21,7 @@ public interface APIService {
                          @Field("first_name") String first_name,
                          @Field("last_name") String last_name,
                          @Field("date_of_birth") String date_of_birth,
-                         @Field("id_school") int id_school,
-                         @Field("profile_picture") String profile_picture,
-                         @Field("token") String token);
+                         @Field("id_school") int id_school);
 
     @FormUrlEncoded
     @POST("login/views/login.php")
@@ -38,7 +36,17 @@ public interface APIService {
     @POST("login/views/reminder.php")
     Call<MSG> reminder(@Field("email") String email);
 
+    @FormUrlEncoded
+    @POST("login/views/returndata.php")
+    Call<MSG> returnData(@Field("token") String token);
 
-
-
+    @FormUrlEncoded
+    @POST("login/views/editinfo")
+    Call<MSG> editInfo(@Field("first_name") String first_name,
+                       @Field("last_name") String last_name,
+                       @Field("date_of_birth") String date_of_birth,
+                       @Field("id_school") int id_school,
+                       @Field("id_school2") int id_school2,
+                       @Field("password") String password,
+                       @Field("token") String token);
 }

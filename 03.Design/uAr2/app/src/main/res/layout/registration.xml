@@ -26,7 +26,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -73,7 +76,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:weightSum="3">
@@ -147,7 +153,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:weightSum="3">
@@ -157,6 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingBottom="5dp"
                 android:paddingLeft="5dp"
                 android:text="@string/school_name" />
 
@@ -173,7 +183,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:weightSum="3">
@@ -183,8 +196,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingBottom="5dp"
                 android:paddingLeft="5dp"
-                android:text="@string/email_optional" />
+                android:text="@string/email" />
 
             <EditText
                 android:id="@+id/txtEmailRegis"
@@ -203,7 +217,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:weightSum="3">
@@ -213,6 +230,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingBottom="5dp"
                 android:paddingLeft="5dp"
                 android:text="@string/password_regis_text" />
 
@@ -220,12 +238,27 @@
                 android:id="@+id/txtPasswordRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="2"
                 android:background="@mipmap/box_full"
                 android:ems="10"
                 android:hint="@string/password_regis_hint"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <EditText
+                android:id="@+id/txtPasswordRegisAgain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@mipmap/box_full"
+                android:ems="10"
+                android:hint="@string/password_regis_rewrite"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />

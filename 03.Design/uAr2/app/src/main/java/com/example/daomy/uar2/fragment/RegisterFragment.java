@@ -1,9 +1,7 @@
 package com.example.daomy.uar2.fragment;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -51,18 +49,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    private static final String TAG = "RegisterActivity";
+    private static final String TAG = "RegisterFragment";
     private static String URL_SCHOOL = APIClient.BASE_URL+"login/views/school.php";
     private ProgressDialog pDialog;
     @BindView(R.id.txtFirstNameRegis)
@@ -73,6 +61,8 @@ public class RegisterFragment extends Fragment {
     EditText txtEmailRegis;
     @BindView(R.id.txtPasswordRegis)
     EditText txtPasswordRegis;
+    @BindView(R.id.txtPasswordRegisAgain)
+    EditText txtPasswordRegisAgain;
     @BindView(R.id.spYearRegis)
     Spinner spYearRegis;
     @BindView(R.id.spMonthRegis)
@@ -95,25 +85,6 @@ public class RegisterFragment extends Fragment {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
-    public static RegisterFragment newInstance(String param1, String param2) {
-        RegisterFragment fragment = new RegisterFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -127,7 +98,7 @@ public class RegisterFragment extends Fragment {
 
     private void addControls() {
         pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Creating Account...");
+        pDialog.setMessage(getResources().getString(R.string.creating_account));
         pDialog.setCancelable(false);
 
         arrSchool = new ArrayList<>();
@@ -178,7 +149,7 @@ public class RegisterFragment extends Fragment {
 
         APIService service = APIClient.getClient().create(APIService.class);
 
-        Call<MSG> userCall = service.userSignUp(emailRegis,passwordRegis,firstNameRegis,lastNameRegis,dateOfBirth,idSchool,null,null);
+        Call<MSG> userCall = service.userSignUp(emailRegis,passwordRegis,firstNameRegis,lastNameRegis,dateOfBirth,idSchool);
 
         userCall.enqueue(new Callback<MSG>() {
             @Override
@@ -302,6 +273,28 @@ public class RegisterFragment extends Fragment {
         adapterYear.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spYearRegis.setAdapter(adapterYear);
 
+        ArrayList<Integer> arrMonth = new ArrayList<>();
+        for (int i= 0;i<12;i++){
+            arrMonth.add(i+1);
+        }
+        ArrayAdapter<Integer> adapterMonth = new ArrayAdapter<Integer>(
+                getActivity(),
+                android.R.layout.simple_spinner_item,
+                arrMonth);
+        adapterMonth.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spMonthRegis.setAdapter(adapterMonth);
+
+        List<String> arrDay;
+        arrDay = Arrays.asList(getResources().getStringArray(R.array.item_day));
+        arrDay = arrDay.subList(0, 31);
+        ArrayAdapter<String> adapterDay = new ArrayAdapter<String>(
+                getActivity(),
+                android.R.layout.simple_spinner_item,
+                arrDay);
+        adapterDay.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spDayRegis.setAdapter(adapterDay);
+
+
         spYearRegis.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -332,7 +325,7 @@ public class RegisterFragment extends Fragment {
                     spDayRegis.setAdapter(adapterDay);
                     //Nếu chuyển từ năm nhuận sang năm khác thì sẽ bị tràn mảng, kiểm tra xem có tràn hay không
                     //Nếu tràn thì set vị trí ngày mặc định về 0, không thì lưu cái cũ
-                    if (spDayRegisPos==arrDay.size()){
+                    if (spDayRegisPos>=arrDay.size()){
                         spDayRegis.setSelection(0);
                     } else {
                         spDayRegis.setSelection(Integer.parseInt(arrDay.get(spDayRegisPos)) - 1);
@@ -347,22 +340,11 @@ public class RegisterFragment extends Fragment {
         });
 
 
-
-        ArrayList<Integer> arrMonth = new ArrayList<>();
-        for (int i= 0;i<12;i++){
-            arrMonth.add(i+1);
-        }
-        ArrayAdapter<Integer> adapterMonth = new ArrayAdapter<Integer>(
-                getActivity(),
-                android.R.layout.simple_spinner_item,
-                arrMonth);
-        adapterMonth.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spMonthRegis.setAdapter(adapterMonth);
-
         spMonthRegis.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int year = Integer.parseInt(spYearRegis.getSelectedItem().toString());
+                int spDayRegisPos = spDayRegis.getSelectedItemPosition();
                 List<String> arrDay = Arrays.asList(getResources().getStringArray(R.array.item_day));
                 if (position == 0 || position == 2 || position == 4 || position == 6 || position == 7 || position == 9
                         || position == 11) {
@@ -402,6 +384,11 @@ public class RegisterFragment extends Fragment {
                     adapterDay.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spDayRegis.setAdapter(adapterDay);
                 }
+                if (spDayRegisPos>=arrDay.size()){
+                    spDayRegis.setSelection(0);
+                } else {
+                    spDayRegis.setSelection(Integer.parseInt(arrDay.get(spDayRegisPos)) - 1);
+                }
             }
 
             @Override
@@ -419,9 +406,10 @@ public class RegisterFragment extends Fragment {
         String lastNameRegis = txtLastNameRegis.getText().toString();
         String emailRegis = txtEmailRegis.getText().toString();
         String passwordRegis = txtPasswordRegis.getText().toString();
+        String passwordRegisAgain = txtPasswordRegisAgain.getText().toString();
 
         if (firstNameRegis.isEmpty()) {
-            txtFirstNameRegis.setError("First name is empty");
+            txtFirstNameRegis.setError(getResources().getString(R.string.first_name_empty));
             requestFocus(txtFirstNameRegis);
             valid = false;
         } else {
@@ -429,7 +417,7 @@ public class RegisterFragment extends Fragment {
         }
 
         if (lastNameRegis.isEmpty()) {
-            txtLastNameRegis.setError("Last name is empty");
+            txtLastNameRegis.setError(getResources().getString(R.string.last_name_empty));
             requestFocus(txtLastNameRegis);
             valid = false;
         } else {
@@ -443,7 +431,7 @@ public class RegisterFragment extends Fragment {
         }
 
         if (emailRegis.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(emailRegis).matches()) {
-            txtEmailRegis.setError("Enter a valid email address");
+            txtEmailRegis.setError(getResources().getString(R.string.valid_email));
             requestFocus(txtEmailRegis);
             valid = false;
         } else {
@@ -451,15 +439,31 @@ public class RegisterFragment extends Fragment {
         }
 
         if (passwordRegis.isEmpty()) {
-            txtPasswordRegis.setError("Password is empty");
+            txtPasswordRegis.setError(getResources().getString(R.string.password_is_empty));
             requestFocus(txtPasswordRegis);
             valid = false;
         } else {
             txtPasswordRegis.setError(null);
         }
 
+        if (passwordRegisAgain.isEmpty()) {
+            txtPasswordRegisAgain.setError(getResources().getString(R.string.password_is_empty));
+            requestFocus(txtPasswordRegisAgain);
+            valid = false;
+        } else {
+            txtPasswordRegisAgain.setError(null);
+        }
+
+        if (!passwordRegisAgain.equals(passwordRegis)) {
+            txtPasswordRegisAgain.setError(getResources().getString(R.string.password_regis_error));
+            requestFocus(txtPasswordRegisAgain);
+            valid = false;
+        } else {
+            txtPasswordRegisAgain.setError(null);
+        }
+
         if (!chkAgreeRegis.isChecked()) {
-            chkAgreeRegis.setError("You must agree with Our terms");
+            chkAgreeRegis.setError(getResources().getString(R.string.chk_error));
             valid = false;
         } else {
             chkAgreeRegis.setError(null);
@@ -475,50 +479,5 @@ public class RegisterFragment extends Fragment {
         if (view.requestFocus()) {
             getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
-    }
-
-
-
-
-
-
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 }

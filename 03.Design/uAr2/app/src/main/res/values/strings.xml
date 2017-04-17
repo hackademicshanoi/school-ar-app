@@ -12,6 +12,8 @@
     <string name="email_optional">メールアドレス（任意）</string>
     <string name="password_regis_text">パスワ一ド</string>
     <string name="password_regis_hint">英数字〇桁以上</string>
+    <string name="password_regis_rewrite">パスワードを再入力</string>
+    <string name="password_regis_error">不正なパスワード</string>
     <string name="i_agree">の同意が必要です。</string>
     <string name="you_must_agree">本サービスをご利用するには利用規約への同意が必要です。</string>
     <string name="wrong_email">Wrong email</string>
@@ -21,8 +23,20 @@
     <string name="email_exist">Email exist</string>
     <string name="select_school_name_spinner">Select an item…</string>
     <string name="error_spinner_school">School Name is empty</string>
+    <string name="password_is_empty">Password is empty</string>
+    <string name="password_now">現在のパスワード</string>
+    <string name="password_new">新しいパスワード（任意）</string>
+    <string name="chk_error">You must agree with Our terms</string>
+    <string name="valid_email">Enter a valid email address</string>
+    <string name="first_name_empty">First name is empty</string>
+    <string name="last_name_empty">Last name is empty</string>
     <string name="describe_reminder">ログイン情報をお忘れの方は、登録のメールアド レスをご入力ください。アドレス宛にログイン情報 を送付いたします。</string>
-
+    <string name="checking_account">Checking account…</string>
+    <string name="born">生まれ</string>
+    <string name="logging_in">Logging in…</string>
+    <string name="creating_account">Creating Account…</string>
+    <string name="txtEmailLogin_setError">Enter a valid email address</string>
+    <string name="txtPasswordLogin_setError">Password is empty</string>
     <string-array name="item_day">
         <item>1</item>
         <item>2</item>
