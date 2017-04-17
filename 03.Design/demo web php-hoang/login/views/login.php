@@ -7,6 +7,7 @@ $auth = new Authentication();
 $auth->prepare($_POST);
 $userStatus = $auth->isUserValidToLogIn();
 $userStatus1 = $auth->isUserNotExisted();
+$userSSS = $auth->returnTokenForLogin();
  
  
 if ($userStatus) {
@@ -14,6 +15,7 @@ if ($userStatus) {
     // So log him to main page
     $json['success'] = 1;
     $json['message'] = 'User Successfully logged';
+	$json['token'] = $userSSS;
  
  
     echo json_encode($json);

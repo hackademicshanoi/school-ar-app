@@ -14,6 +14,12 @@ class Authentication
 	private $TOKEN = "";
     private $EMAIL = "";
     private $PASSWORD = "";
+	
+	private $FIRST_NAME = "";
+	private $LAST_NAME = "";
+	private $DATE_OF_BIRTH = "";
+	private $ID_SCHOOL = "";
+	private $ID_SCHOOL2 = "";
  
     private $DB_CONNECTION;
     private $servername = "localhost";
@@ -71,7 +77,77 @@ class Authentication
         }else {
             return false;
         }
-    }	
+    }
+	
+	function returnFirstNameForEditAfterCheckingToken() {
+		$sql = "SELECT `first_name` FROM `users` WHERE token = '". $this->TOKEN."' ";
+ 
+        $result = mysqli_query($this->DB_CONNECTION, $sql);
+ 
+        $row = mysqli_fetch_array($result);
+            return $row['first_name'];
+	}
+		
+	function returnLastNameForEditAfterCheckingToken() {
+		$sql = "SELECT `last_name` FROM `users` WHERE token = '". $this->TOKEN."' ";
+ 
+        $result = mysqli_query($this->DB_CONNECTION, $sql);
+ 
+        $row = mysqli_fetch_array($result);
+            return $row['last_name'];
+	}
+	
+	function returnDateOfBirthForEditAfterCheckingToken() {
+		$sql = "SELECT `date_of_birth` FROM `users` WHERE token = '". $this->TOKEN."' ";
+ 
+        $result = mysqli_query($this->DB_CONNECTION, $sql);
+ 
+        $row = mysqli_fetch_array($result);
+            return $row['date_of_birth'];
+	}
+	
+	function returnIdSchoolForEditAfterCheckingToken() {
+		$sql = "SELECT `id_school` FROM `users` WHERE token = '". $this->TOKEN."' ";
+ 
+        $result = mysqli_query($this->DB_CONNECTION, $sql);
+ 
+        $row = mysqli_fetch_array($result);
+            return $row['id_school'];
+	}
+	
+	function returnIdSchool2ForEditAfterCheckingToken() {
+		$sql = "SELECT `id_school2` FROM `users` WHERE token = '". $this->TOKEN."' ";
+ 
+        $result = mysqli_query($this->DB_CONNECTION, $sql);
+ 
+        $row = mysqli_fetch_array($result);
+            return $row['id_school2'];
+	}
+
+	function returnTokenForLogin() {
+		$sql = "SELECT `token` FROM `users` WHERE email = '". $this->EMAIL."'
+         AND password = '".$this->PASSWORD."'";
+ 
+        $result = mysqli_query($this->DB_CONNECTION, $sql);
+ 
+        if(mysqli_num_rows($result) > 0) {
+            return $this->EMAIL.$this->PASSWORD;
+        }else {
+            return "nothing";
+        }
+	}	
+	
+	function returnEmailForEdit() {
+		$sql = "SELECT `email` FROM `users` WHERE token = '". $this->TOKEN."'";
+ 
+        $result = mysqli_query($this->DB_CONNECTION, $sql);
+ 
+        if(mysqli_num_rows($result) > 0) {
+            return $this->EMAIL;
+        }else {
+            return "nothing";
+        }
+	}	
 	
  
 	function isUserNotExisted() {
