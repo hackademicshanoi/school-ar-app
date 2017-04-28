@@ -7,86 +7,87 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:weightSum="6">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_below="@+id/imageView"
-            android:layout_marginTop="50dp"
-            android:layout_weight="3"
-            android:src="@drawable/dong"
-            app:border_width="1dp" />
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
+            android:layout_weight="0.3"
             android:gravity="center"
-            android:orientation="vertical"
-            android:weightSum="2">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+            <ImageView
+                android:id="@+id/imgProfileMyPage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                 />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
+            android:layout_weight="0.2"
             android:gravity="center"
             android:orientation="vertical"
             android:weightSum="2">
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/txtFullNameMyPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="山田花子 " />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/txtDateOfBirthMyPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="2008年12月31日生まれ " />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
+            android:layout_weight="0.2"
             android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/txtFirstSchoolMyPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="私立〇x〇x小学校 " />
+
+            <TextView
+                android:id="@+id/txtSecondSchoolMyPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="私立〇x〇x中学校 " />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_gravity="bottom"
             android:orientation="horizontal"
             android:weightSum="2">
 
             <ImageView
-                android:id="@+id/imageView24"
+                android:id="@+id/imgCameraMyPage"
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@mipmap/camera_mp" />
 
             <ImageView
-                android:id="@+id/imageView25"
+                android:layout_gravity="center"
+                android:id="@+id/imgEditMyPage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

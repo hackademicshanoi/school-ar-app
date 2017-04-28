@@ -1,3 +1,95 @@
 <resources>
+    <string-array name="LamTron_keys">
+        <item>Làm tròn tiền trừ</item>
+        <item>Làm tròn tổng tiền</item>
+    </string-array>
+    <string-array name="LamTron_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <string name="app_name">uArLayout</string>
+<<<<<<< HEAD
+    <string name="password">パスワード</string>
+    <string name="email">メールアドレス</string>
+    <string name="splash_screen_description">UAR Splash</string>
+    <string name="your_name">お名前</string>
+    <string name="date_of_birth">生年月日</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日 </string>
+    <string name="school_name">学校名</string>
+    <string name="email_optional">メールアドレス（任意）</string>
+    <string name="password_regis_text">パスワ一ド</string>
+    <string name="password_regis_hint">英数字〇桁以上</string>
+    <string name="password_regis_rewrite">パスワードを再入力</string>
+    <string name="password_regis_error">不正なパスワード</string>
+    <string name="i_agree">の同意が必要です。</string>
+    <string name="you_must_agree">本サービスをご利用するには利用規約への同意が必要です。</string>
+    <string name="wrong_email">Wrong email</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="signup_for_wrong_email">SIGNUP</string>
+    <string name="recovery_for_wrong_password">RECOVERY</string>
+    <string name="email_exist">Email exist</string>
+    <string name="select_school_name_spinner">Select an item…</string>
+    <string name="error_spinner_school">School Name is empty</string>
+    <string name="password_is_empty">Password is empty</string>
+    <string name="password_now">現在のパスワード</string>
+    <string name="password_new">新しいパスワード（任意）</string>
+    <string name="chk_error">You must agree with Our terms</string>
+    <string name="valid_email">Enter a valid email address</string>
+    <string name="first_name_empty">First name is empty</string>
+    <string name="last_name_empty">Last name is empty</string>
+    <string name="describe_reminder">ログイン情報をお忘れの方は、登録のメールアド レスをご入力ください。アドレス宛にログイン情報 を送付いたします。</string>
+    <string name="checking_account">Checking account…</string>
+    <string name="born">生まれ</string>
+    <string name="logging_in">Logging in…</string>
+    <string name="creating_account">Creating Account…</string>
+    <string name="txtEmailLogin_setError">Enter a valid email address</string>
+    <string name="txtPasswordLogin_setError">Password is empty</string>
+=======
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+
+>>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register
+    <string-array name="item_day">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+
+    </string-array>
+
+<<<<<<< HEAD
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+=======
+>>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register
 </resources>
