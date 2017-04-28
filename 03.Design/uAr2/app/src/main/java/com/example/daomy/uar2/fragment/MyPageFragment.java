@@ -145,14 +145,14 @@ public class MyPageFragment extends Fragment {
                             .fit()
                             .centerCrop()
                             .into(imgProfileMyPage);
-                      try {
+                    try {
 
                         Date date = simpleDateFormat.parse(dateInString);
                         final Calendar calendar = Calendar.getInstance();
                         calendar.setTime(date);
                         txtDateOfBirthMyPage.setText(calendar.get(Calendar.YEAR)+" "+getResources().getString(R.string.year)
-                        +" "+(calendar.get(Calendar.MONTH)+1)+" "+getResources().getString(R.string.month)
-                        +" "+calendar.get(Calendar.DATE)+getResources().getString(R.string.day)+getResources().getString(R.string.born));
+                                +" "+(calendar.get(Calendar.MONTH)+1)+" "+getResources().getString(R.string.month)
+                                +" "+calendar.get(Calendar.DATE)+getResources().getString(R.string.day)+getResources().getString(R.string.born));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
@@ -234,13 +234,13 @@ public class MyPageFragment extends Fragment {
                         @Override
                         public void onResponse(Call<MSG> call, final Response<MSG> response) {
 
-                                    Picasso.with(getContext())
-                                            .load(response.body().getProfilePicture())
-                                            .transform(new RoundedTransformation(500, 4))
-                                            .fit()
-                                            .centerCrop()
-                                            .skipMemoryCache()
-                                            .into(imgProfileMyPage);
+                            Picasso.with(getContext())
+                                    .load(response.body().getProfilePicture())
+                                    .transform(new RoundedTransformation(500, 4))
+                                    .fit()
+                                    .centerCrop()
+                                    .skipMemoryCache()
+                                    .into(imgProfileMyPage);
 
                         }
 

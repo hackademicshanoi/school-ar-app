@@ -11,17 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
         <activity android:name=".activity.SplashScreenActivity">
-=======
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".activity.LoginActivity">
-
-        </activity>
-        <activity android:name=".activity.RegisterActivity">
->>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

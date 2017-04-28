@@ -11,13 +11,12 @@ public class MSG {
     private String firstName;
     private String lastName;
     private String dateOfBirth;
-    private int id_School;
-    private int id_School2;
+    private int idSchool;
+    private int idSchool2;
     private String profilePicture;
     private String token;
     private String schoolName;
     private String schoolName2;
-
 
     /**
      * No args constructor for use in serialization
@@ -37,8 +36,8 @@ public class MSG {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.id_School = idSchool;
-        this.id_School2 = idSchool2;
+        this.idSchool = idSchool;
+        this.idSchool2 = idSchool2;
         this.profilePicture = profilePicture;
         this.token = token;
         this.schoolName = schoolName;
@@ -94,19 +93,19 @@ public class MSG {
     }
 
     public int getIdSchool() {
-        return id_School;
+        return idSchool;
     }
 
     public void setIdSchool(int idSchool) {
-        this.id_School = idSchool;
+        this.idSchool = idSchool;
     }
 
     public int getIdSchool2() {
-        return id_School2;
+        return idSchool2;
     }
 
     public void setIdSchool2(int idSchool2) {
-        this.id_School2 = idSchool2;
+        this.idSchool2 = idSchool2;
     }
 
     public String getProfilePicture() {

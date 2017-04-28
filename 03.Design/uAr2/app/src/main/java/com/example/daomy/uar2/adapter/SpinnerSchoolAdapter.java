@@ -1,10 +1,7 @@
 package com.example.daomy.uar2.adapter;
 
 import android.app.Activity;
-<<<<<<< HEAD
 import android.graphics.Color;
-=======
->>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -38,12 +35,9 @@ public class SpinnerSchoolAdapter extends ArrayAdapter<School> {
 
         School school=objects.get(position);
         txtSpSchool.setText(school.getSchool_name());
-<<<<<<< HEAD
         if (position ==0){
             txtSpSchool.setTextColor(Color.GRAY);
         }
-=======
->>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register
         return row;
     }
 
@@ -56,7 +50,6 @@ public class SpinnerSchoolAdapter extends ArrayAdapter<School> {
 
         School school=objects.get(position);
         txtSpSchool.setText(school.getSchool_name());
-<<<<<<< HEAD
         if (position ==0){
             txtSpSchool.setTextColor(Color.GRAY);
         }
@@ -76,8 +69,4 @@ public class SpinnerSchoolAdapter extends ArrayAdapter<School> {
         TextView name = (TextView) v.findViewById(R.id.txtSpSchool);
         name.setError(s);
     }
-=======
-        return row;
-    }
->>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register
 }

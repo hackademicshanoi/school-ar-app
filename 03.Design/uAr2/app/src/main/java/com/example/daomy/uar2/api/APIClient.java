@@ -8,11 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
-<<<<<<< HEAD
     public static final String BASE_URL = "http://192.168.100.163:81/";
-=======
-    public static final String BASE_URL = "http://192.168.100.173/";
->>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register
     private static Retrofit retrofit = null;
 
 

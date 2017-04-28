@@ -62,7 +62,7 @@ public class LoginFragment extends Fragment {
         pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage(getResources().getString(R.string.logging_in));
         pDialog.setCancelable(false);
-        // Lấy token từ  Preferences
+
         sharedPreferencesToken=getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
     }
 
@@ -78,7 +78,7 @@ public class LoginFragment extends Fragment {
 
     public void login() {
         Log.d(TAG, "Login");
-    /// Nếu validate trả giá trị true thì bắt làm lại .Validate là kiểm tra các thông số truyền vào email ,password
+
         if (!validate()) {
             onLoginFailed();
             return;
@@ -98,9 +98,9 @@ public class LoginFragment extends Fragment {
 
 
         APIService service = APIClient.getClient().create(APIService.class);
-        // Gưi email ,pass đến server qua mẫu userCall của APIService
+
         Call<MSG> userCall = service.userLogIn(email,password);
-// Nhận lại trả lời từ server bằng mẫu của MSG .
+
         userCall.enqueue(new Callback<MSG>() {
             @Override
             public void onResponse(Call<MSG> call, Response<MSG> response) {
@@ -108,7 +108,7 @@ public class LoginFragment extends Fragment {
                 //onSignupSuccess();
                 Log.d("onResponse", "" + response.body().getMessage());
 
-    // json success trả lại 1 nghĩa là thành công thực hiện lưu 1 PreferenToken để so sánh đăng nhập lầ sau
+
                 if(response.body().getSuccess() == 1) {
                     SharedPreferences.Editor editor=sharedPreferencesToken.edit();
                     editor.putString("token",response.body().getToken());
@@ -154,29 +154,6 @@ public class LoginFragment extends Fragment {
                         textView.setTextColor(Color.YELLOW);
                         snackbar.show();
                     }
-<<<<<<< HEAD:03.Design/uAr2/app/src/main/java/com/example/daomy/uar2/fragment/LoginFragment.java
-=======
-                    else {
-                        Snackbar snackbar = Snackbar
-                                .make(constraintLayout, response.body().getMessage(), Snackbar.LENGTH_LONG)
-                                .setAction("SIGNUP", new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-                                        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                                    }
-                                });
-
-                        // Changing message text color
-                        snackbar.setActionTextColor(Color.RED);
-
-                        // Changing action button text color
-                        View sbView = snackbar.getView();
-                        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
-                        textView.setTextColor(Color.YELLOW);
-                        snackbar.show();
-                    }
->>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register:03.Design/uAr2/app/src/main/java/com/example/daomy/uar2/activity/LoginActivity.java
                 }
             }
 
@@ -215,11 +192,7 @@ public class LoginFragment extends Fragment {
         String password = txtPasswordLogin.getText().toString();
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-<<<<<<< HEAD:03.Design/uAr2/app/src/main/java/com/example/daomy/uar2/fragment/LoginFragment.java
             txtEmailLogin.setError(getResources().getString(R.string.txtEmailLogin_setError));
-=======
-            txtEmailLogin.setError("Enter a valid email address");
->>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register:03.Design/uAr2/app/src/main/java/com/example/daomy/uar2/activity/LoginActivity.java
             requestFocus(txtEmailLogin);
             valid = false;
         } else {

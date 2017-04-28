@@ -1,14 +1,5 @@
 <resources>
-    <string-array name="LamTron_keys">
-        <item>Làm tròn tiền trừ</item>
-        <item>Làm tròn tổng tiền</item>
-    </string-array>
-    <string-array name="LamTron_values">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
     <string name="app_name">uArLayout</string>
-<<<<<<< HEAD
     <string name="password">パスワード</string>
     <string name="email">メールアドレス</string>
     <string name="splash_screen_description">UAR Splash</string>
@@ -16,7 +7,7 @@
     <string name="date_of_birth">生年月日</string>
     <string name="year">年</string>
     <string name="month">月</string>
-    <string name="day">日 </string>
+    <string name="day">日</string>
     <string name="school_name">学校名</string>
     <string name="email_optional">メールアドレス（任意）</string>
     <string name="password_regis_text">パスワ一ド</string>
@@ -46,11 +37,6 @@
     <string name="creating_account">Creating Account…</string>
     <string name="txtEmailLogin_setError">Enter a valid email address</string>
     <string name="txtPasswordLogin_setError">Password is empty</string>
-=======
-    <string name="password">Password</string>
-    <string name="email">Email</string>
-
->>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register
     <string-array name="item_day">
         <item>1</item>
         <item>2</item>
@@ -86,10 +72,7 @@
 
     </string-array>
 
-<<<<<<< HEAD
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-=======
->>>>>>> c3b4787... code màn hình login & register + update api + code web php login & register
 </resources>
