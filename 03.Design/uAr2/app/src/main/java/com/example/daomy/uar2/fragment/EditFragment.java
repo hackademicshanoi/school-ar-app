@@ -166,7 +166,7 @@ public class EditFragment extends Fragment {
 
         APIService service = APIClient.getClient().create(APIService.class);
 
-        Call<MSG> userCall = service.editInfo(firstNameEdit,lastNameEdit,dateOfBirth,idSchool,idSchool2,passwordNew, tokenSP);
+        Call<MSG> userCall = service.editInfo(firstNameEdit,lastNameEdit,dateOfBirth,idSchool,idSchool2,passwordNow,passwordNew,tokenSP);
 
         userCall.enqueue(new Callback<MSG>() {
             @Override

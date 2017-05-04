@@ -7,10 +7,6 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-/**
- * Created by User on 4/6/2017.
- */
-
 public interface APIService {
 
 
@@ -47,6 +43,7 @@ public interface APIService {
                        @Field("date_of_birth") String date_of_birth,
                        @Field("id_school") int id_school,
                        @Field("id_school2") int id_school2,
-                       @Field("password") String password,
+                       @Field("passwordNow") String passwordNow,
+                       @Field("passwordNew") String passwordNew,
                        @Field("token") String token);
 }
